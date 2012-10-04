@@ -15,6 +15,7 @@ module RailsLegacyMapper
 
       if conditions = options.delete(:conditions)
         conditions = conditions.dup
+        subdomain = conditions.delete(:subdomain)
         method = Array.wrap(conditions.delete(:method))
         method.map! { |m|
           if m == :head
@@ -87,6 +88,7 @@ module RailsLegacyMapper
       conditions = {}
       conditions[:request_method] = method if method && !method.empty?
       conditions[:path_info] = path if path
+      conditions[:subdomain] = subdomain if subdomain
 
       @set.add_route(app, conditions, requirements, defaults, name)
     end
