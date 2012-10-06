@@ -1,10 +1,7 @@
 require 'rake'
-require 'rake/rdoctask'
 require 'rake/testtask'
-require 'rubygems'
-require 'bundler/setup'
-
-Bundler::GemHelper.install_tasks
+require 'rdoc/task'
+require 'bundler/gem_tasks'
 
 desc 'Default: run rails_legacy_mapper tests.'
 task :default => :test
