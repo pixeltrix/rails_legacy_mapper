@@ -2,6 +2,7 @@ require 'rake'
 require 'rake/testtask'
 require 'rdoc/task'
 require 'bundler/gem_tasks'
+require 'appraisal'
 
 desc 'Default: run rails_legacy_mapper tests.'
 task :default => :test

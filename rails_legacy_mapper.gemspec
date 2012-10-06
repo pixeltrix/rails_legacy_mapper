@@ -48,8 +48,7 @@ EOF
 
   s.require_paths = ["lib"]
 
-  s.add_dependency "rails", "~> 3.1.0.beta"
-  s.add_development_dependency "bundler", "~> 1.0.10"
+  s.add_dependency "actionpack", "~> 3.1"
+  s.add_development_dependency "appraisal", "~> 0.4.1"
   s.add_development_dependency "mocha", "~> 0.9.8"
-  s.add_development_dependency "rake", "~> 0.8.7"
 end
