@@ -1,3 +1,10 @@
-*Rails Legacy Mapper 1.0.0 (March 29, 2011)
+*1.1.0 (October 7th, 2012)
+
+* Add :subdomain conditions [Aman Gupta]
+
+* Add support for Rails 3.2
+
+
+*1.0.0 (March 29th, 2011)
 
 * Initial release
