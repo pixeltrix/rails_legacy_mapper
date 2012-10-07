@@ -343,6 +343,26 @@ class RouteSetTest < ActiveSupport::TestCase
     }
   end
 
+  def test_recognize_with_subdomain_condition
+    set.draw do |map|
+      map.with_options(:controller => "api/users") do |user|
+        user.connect "/users/:id.:format", :action => "show",
+          :requirements => { :format => /json|xml/ },
+          :conditions => { :method => :get, :subdomain => "api" }
+      end
+    end
+
+    params = recognize_path("http://api.example.com/users/1.json")
+    assert_equal("api/users", params[:controller])
+    assert_equal("show", params[:action])
+    assert_equal("1", params[:id])
+    assert_equal("json", params[:format])
+
+    assert_raise(ActionController::RoutingError) do
+      recognize_path("http://www.example.com/users/1.json")
+    end
+  end
+
   def test_recognize_with_alias_in_conditions
     set.draw do |map|
       map.people "/people", :controller => 'people', :action => "index",
