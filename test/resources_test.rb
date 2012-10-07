@@ -127,7 +127,7 @@ class ResourcesTest < ActionController::TestCase
 
   def test_with_custom_conditions
     with_restful_routing :messages, :conditions => { :subdomain => 'app' } do
-      assert @routes.recognize_path("/messages", :method => :get, :subdomain => 'app')
+      assert @routes.recognize_path("http://app.example.com/messages", :method => :get)
     end
   end
 
