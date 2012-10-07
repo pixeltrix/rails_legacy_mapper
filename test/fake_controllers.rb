@@ -15,6 +15,14 @@ module Api
   class ProductsController < ActionController::Base; end
 end
 
+module Bling
+  class BloopController < ActionController::Base; end
+end
+
+module Foo
+  class BarController < ActionController::Base; end
+end
+
 class AccountController < ActionController::Base; end
 class AddressesController < ActionController::Base; end
 class ArchiveController < ActionController::Base; end

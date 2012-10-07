@@ -75,7 +75,7 @@ module RailsLegacyMapper
         path = path.gsub('.:format', '(.:format)')
         path = optionalize_trailing_dynamic_segments(path, requirements, defaults)
         glob = $1.to_sym if path =~ /\/\*(\w+)$/
-        path = ::Rack::Mount::Utils.normalize_path(path)
+        path = normalize_path(path)
 
         if glob && !defaults[glob].blank?
           raise ActionController::RoutingError, "paths cannot have non-empty default values"
@@ -141,6 +141,15 @@ module RailsLegacyMapper
       segments.join
     end
     private :optionalize_trailing_dynamic_segments
+
+    def normalize_path(path) #:nodoc:
+      path = "/#{path}"
+      path.squeeze!('/')
+      path.sub!(%r{/+\Z}, '')
+      path = '/' if path == ''
+      path
+    end
+    private :normalize_path
 
     # Creates a named route called "root" for matching the root level request.
     def root(options = {})
