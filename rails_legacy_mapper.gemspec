@@ -20,7 +20,7 @@ EOF
     ".gemtest",
     "CHANGELOG",
     "LICENSE",
-    "README",
+    "README.md",
     "Rakefile",
     "lib/rails_legacy_mapper.rb",
     "lib/rails_legacy_mapper/mapper.rb",
