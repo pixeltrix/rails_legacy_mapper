@@ -49,6 +49,6 @@ EOF
   s.require_paths = ["lib"]
 
   s.add_dependency "actionpack", "~> 3.1"
-  s.add_development_dependency "appraisal", "~> 0.4.1"
-  s.add_development_dependency "mocha", "~> 0.9.8"
+  s.add_development_dependency "appraisal", "~> 0.4.0"
+  s.add_development_dependency "mocha", "~> 0.12.0"
 end
